@@ -1,0 +1,13 @@
+{
+	"server": {
+		"port": 8000,
+		"path": {
+			"view": "../build",
+			"mock": "../mocks/testCase"
+		},
+		"globals": {
+			"baseUrl": "",
+			"basePath": "http://localhost"
+		}
+	}
+}

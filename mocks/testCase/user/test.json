@@ -1,0 +1,17 @@
+[
+	{
+		"url": ["/third"],
+		"ver": "get",
+		"data": {
+			"zhangsan":"lisi"
+		}
+	},
+	{
+		"url": ["/tttt"],
+		"ver": "get",
+		"data": [
+			{"123":"adfa"},
+			{"123":"adfa"}
+		]
+	}
+]

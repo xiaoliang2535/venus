@@ -1,0 +1,13 @@
+[
+	{
+		"url": ["/app/getColor"],
+		"ver": "get",
+		"data": [
+			"black",
+			"purple",
+			"blue",
+			"green"
+		]
+	}
+]
+

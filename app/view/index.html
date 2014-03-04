@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" ng-controller="headController">
+<head>
+	<meta charset="utf-8">
+	<title>web前端导航</title>
+	<link rel="stylesheet" href="../style/themes/{{themeColor}}.css" />
+	<link rel="shortcut icon" href="http://localhost:8000/favicon.ico">
+</head>
+<body>
+	<header class="navbar">
+		<div class="ui-container-wrap">
+			<div class="fl logo">流行“前”线</div>
+			<ul class="fr nav">
+				<li>
+					<a class="a-link ft-helvetica" href="javascript:0">Blog</a>
+				</li>
+				<li>
+					<a class="a-link ft-helvetica" ng-click="showColor()" href="javascript:0">Color</a>
+					<ul ng-class="{true: 'sub-nav', false: 'hidden'}[isColor]">
+						<li ng-repeat="color in allThemes"><a class="a-sub-link" ng-click="changeThemes('{{color}}')" href="javascript:0">{{color}}</a></li>
+					</ul>
+				</li>
+			</ul>
+	</header>
+
+	<main class="ui-main-wrap">
+		<div class="ui-left-wrap">
+			<div class="gray-wrap">
+				<div class="nav-tree">
+				</div>
+				<div class="open-lock">
+				</div>
+			</div>
+		</div>
+		<div class="ui-right-wrap">
+		</div>
+	</main>
+
+	<script src="../vender/angular/1.1.5/angular.js"></script>
+	<script src="../script/index.js"></script>
+	<script src="../script/services/mainService.js"></script>
+	<script src="../script/controllers/mainControllers.js"></script>
+	<script src="../script/directives/mainDirectives.js"></script>
+</body>
+</html>
