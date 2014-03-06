@@ -9,7 +9,7 @@
 <body>
 	<header class="navbar">
 		<div class="ui-container-wrap">
-			<div class="fl logo">流行“前”线</div>
+			<div class="fl logo">蘸“前”顾“后”</div>
 			<ul class="fr nav">
 				<li>
 					<a class="a-link ft-helvetica" href="javascript:0">Blog</a>
@@ -27,15 +27,18 @@
 		<div class="ui-left-wrap">
 			<div class="gray-wrap">
 				<ul class="nav-tree">
-					<li class="menu-btn btn-yellow">
-						<i class="i-1"></i>
+					<li draggable='yellow' class="menu-btn btn-yellow">
+						<span class="circle-wrap">
+							<i class="i-1"></i>
+							<i class="i-2"></i>
+							<i class="i-3"></i>
+						</span>
 					</li>
-					<li class="menu-btn btn-green">
+					<li draggable='green' class="menu-btn btn-green">
 						<i class="i-1"></i>
-						<i class="i-2"></i>
 					</li>
 				</ul>
-				<div class="open-lock">
+				<div ng-class="openBtn">
 				</div>
 			</div>
 		</div>

@@ -5,6 +5,6 @@
 app = angular.module "mainApp", [
 	'mainApp.controllers'
 	# 'mainApp.services'
-	# 'mainApp.directives'
+	'mainApp.directives'
 ]
 # app.config ($routerProvider)->
