@@ -27,22 +27,32 @@
 		<div class="ui-left-wrap">
 			<div class="gray-wrap">
 				<ul class="nav-tree">
-					<li draggable='yellow' class="menu-btn btn-yellow">
+					<li draggable='btn-yellow' class="menu-btn btn-yellow">
 						<span class="circle-wrap">
 							<i class="i-1"></i>
 							<i class="i-2"></i>
 							<i class="i-3"></i>
 						</span>
 					</li>
-					<li draggable='green' class="menu-btn btn-green">
-						<i class="i-1"></i>
+					<li draggable='btn-green' class="menu-btn btn-green">
+						<span class="circle-wrap">
+							<i class="i-1"></i>
+						</span>
 					</li>
 				</ul>
-				<div ng-class="openBtn">
+				<div ng-class="openBtn" class="open-lock">
+					<span class="circle-wrap">
+						<i class="i-1"></i>
+						<i class="i-2"></i>
+						<i class="i-3"></i>
+					</span>
 				</div>
 			</div>
 		</div>
 		<div class="ui-right-wrap">
+			<!-- <img src="1" class="mask" /> -->
+			<canvas id="test"></canvas>
+			<canvasmask iscope="../image/tmp/shape.png" ibase="../image/tmp/base.png" imask="../image/tmp/mask.png" icon="../image/tmp/icon.png"></canvasmask>
 		</div>
 	</main>
 

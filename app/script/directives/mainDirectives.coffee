@@ -1,45 +1,54 @@
 'use strict'
 
 angular.module 'mainApp.directives', []
+
 	.directive 'draggable', ($document)->
-		{
-			restrict: 'ECA'
-			terminal: true
-			link: (scope, element, attrs)->
-				startX = 0
-				startY = 0
-				x = 0
-				y = 0
+		restrict: 'ECA'
+		terminal: true
+		link: (scope, element, attrs)->
+			# element.draggable = true
 
-				mousemove = (event)->
-					y = event.screenY - startY
-					x = event.screenX - startX
-					element.css {
-						top: y + 'px'
-						left: x + 'px'
-					}
+			# element.bind 'dragstart', (event)->
+			# 	# event.dataTransfer.effectAllowed = 'move'
+			# 	# console.log "dragstart"
 
-				mouseup = ()->
-					element.css {
-						top: 0
-						left: 0
-					}
-					startX = startY = x = y = 0
-					$document.unbind 'mousemove'#, mousemove
-					$document.unbind 'mouseup'#, mouseup
+			# element.bind 'dragend', (event)->
+			# 	# console.log "dragend"
 
-				element.bind 'mousedown', (event)->
-					# 传参数
-					args = attrs.draggable.split(',')
-					startX = event.screenX - x
-					startY = event.screenY - y
-					scope.openBtn = args[0]
-					console.log scope, args, args[0]
+			# startX = 0
+			# startY = 0
+			# x = 0
+			# y = 0
 
-					$document.bind 'mousemove', mousemove
-					$document.bind 'mouseup', mouseup
+			# mousemove = (event)->
+			# 	y = event.screenY - startY
+			# 	x = event.screenX - startX
+			# 	element.css {
+			# 		top: y + 'px'
+			# 		left: x + 'px'
+			# 	}
 
+			# mouseup = ()->
+			# 	element.css {
+			# 		top: 0
+			# 		left: 0
+			# 	}
+			# 	scope.$apply ()->
+			# 		scope.openBtn = "btn-blue"
+			# 	startX = startY = x = y = 0
+			# 	$document.unbind 'mousemove'#, mousemove
+			# 	$document.unbind 'mouseup'#, mouseup
 
-				return
-		}
+			# element.bind 'mousedown', (event)->
+			# 	event.preventDefault()
+			# 	args = attrs.draggable.split(',')
+			# 	# scope.openBtn = args[0]
+			# 	scope.$apply ()->
+			# 		scope.openBtn = args[0]
+			# 	startX = event.screenX - x
+			# 	startY = event.screenY - y
+			# 	$document.bind 'mousemove', mousemove
+			# 	$document.bind 'mouseup', mouseup
+
+			# return
 return

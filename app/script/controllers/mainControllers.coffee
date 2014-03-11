@@ -4,7 +4,7 @@ angular.module('mainApp.controllers', [
 		'mainApp.services'
 	]).controller 'headController', ($scope, mainService)->
 		$scope.themeColor = "black"
-		$scope.openBtn = 'open-lock'
+		$scope.openBtn = 'btn-blue'
 		$scope.isColor = false
 
 		mainService.getColor (data)->
