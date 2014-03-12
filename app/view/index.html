@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>web前端导航</title>
 	<link rel="stylesheet" href="../style/themes/{{themeColor}}.css" />
+	<link rel="stylesheet" href="../style/right.css" />
 	<link rel="shortcut icon" href="http://localhost:8000/favicon.ico">
 </head>
 <body>
@@ -50,9 +51,7 @@
 			</div>
 		</div>
 		<div class="ui-right-wrap">
-			<!-- <img src="1" class="mask" /> -->
-			<canvas id="test"></canvas>
-			<canvasmask iscope="../image/tmp/shape.png" ibase="../image/tmp/base.png" imask="../image/tmp/mask.png" icon="../image/tmp/icon.png"></canvasmask>
+			<img class="active-bg" ng-repeat="app in app_icon" src="{{app.icon}}" base="{{app.base}}" shape="" mask="{{app.mask}}" icon-mask />
 		</div>
 	</main>
 
@@ -61,5 +60,6 @@
 	<script src="../script/services/mainService.js"></script>
 	<script src="../script/controllers/mainControllers.js"></script>
 	<script src="../script/directives/mainDirectives.js"></script>
+	<script src="../script/directives/maskDirectives.js"></script>
 </body>
 </html>

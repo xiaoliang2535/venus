@@ -10,6 +10,9 @@ angular.module('mainApp.controllers', [
 		mainService.getColor (data)->
 			$scope.allThemes = data
 
+		mainService.getIcon (data)->
+			$scope.app_icon = data
+
 		$scope.changeThemes = (color)->
 			$scope.themeColor = color
 			$scope.isColor = false
@@ -19,4 +22,3 @@ angular.module('mainApp.controllers', [
 			$scope.isColor = !$scope.isColor
 			return
 		return
-
