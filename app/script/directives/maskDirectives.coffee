@@ -2,42 +2,44 @@
 
 angular.module 'maskDirectives', []
 
-	.directive 'iconMask', ($document)->
-		link: (scope, element, attrs)->
+angular.module('anthcraft.iconMask', [
 
-			imageCanvas  = document.createElement 'canvas'
-			imageContext = imageCanvas.getContext '2d'
+]).directive 'iconMask', ($document)->
+	restrict: 'A'
+	link: (scope, element, attrs)->
+		console.log 123
 
-			width  = attrs.width  || 56
-			height = attrs.height || 56
-			imageCanvas.width  = width
-			imageCanvas.height = height
+		imageCanvas  = document.createElement 'canvas'
+		imageContext = imageCanvas.getContext '2d'
 
-			preImage = (url, cb)->
-				img = new Image()
-				img.src = url
-				img.onload = ()->
-					cb.call img
-					element.attr "src", imageCanvas.toDataURL()
-				return
+		width  = attrs.width  || 56
+		height = attrs.height || 56
+		imageCanvas.width  = width
+		imageCanvas.height = height
 
-
-			preImage attrs.src, ()->
-				imageContext.drawImage this, 4, 4, 48, 48
-				imageContext.globalCompositeOperation = 'destination-in'
-
-				preImage attrs.mask, ()->
-					imageContext.drawImage this, 0, 0, width, height
-					imageContext.globalCompositeOperation = 'destination-over'
-
-					preImage attrs.base, ()->
-						imageContext.drawImage this, 0, 0, width, height
-						imageContext.globalCompositeOperation = 'destination-atop'
-						preImage attrs.shape, ()->
-							imageContext.drawImage this, 0, 0, width, height
+		preImage = (url, cb)->
+			img = new Image()
+			img.src = url
+			img.onload = ()->
+				cb.call img
+				element.attr "src", imageCanvas.toDataURL()
 			return
-	return
 
+
+		preImage attrs.src, ()->
+			imageContext.drawImage this, 4, 4, 48, 48
+			imageContext.globalCompositeOperation = 'destination-in'
+
+			preImage attrs.shape, ()->
+				imageContext.drawImage this, 0, 0, width, height
+				imageContext.globalCompositeOperation = 'destination-over'
+
+				preImage attrs.base, ()->
+					imageContext.drawImage this, 0, 0, width, height
+					imageContext.globalCompositeOperation = 'source-over'
+					preImage attrs.mask, ()->
+						imageContext.drawImage this, 0, 0, width, height
+		return
 
 
 							# element.attr "src", imageCanvas.toDataURL()

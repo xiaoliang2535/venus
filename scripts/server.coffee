@@ -16,5 +16,6 @@ app.use express.directory  __dirname + '/' + config.server.path.view
 app.use express.static __dirname + '/' + config.server.path.view
 
 route.route app, mock
+require('../lib/routes')(app)
 
 module.exports = app
