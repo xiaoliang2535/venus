@@ -1,7 +1,7 @@
 'use strict'
 
-# BASE_PATH = 'http://localhost:8000/'
-BASE_PATH = 'http://10.12.0.40:8000/'
+BASE_PATH = 'http://localhost:8000/'
+# BASE_PATH = 'http://10.12.0.40:8000/'
 
 angular.module 'mainApp.services', []
 	.service 'mainService', ($http)->

@@ -33,7 +33,6 @@ module.exports = (grunt) ->
 					dest: '<%= config.path.build %>/<%= config.path.source %>/script'
 					ext: '.js'
 				]
-
 		less:
 			build:
 				files: [

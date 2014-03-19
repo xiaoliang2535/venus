@@ -1,54 +1,54 @@
 'use strict'
 
-angular.module 'mainApp.directives', []
+angular.module('mainApp.directives', [
 
-	.directive 'draggable', ($document)->
-		restrict: 'ECA'
-		terminal: true
-		link: (scope, element, attrs)->
-			# element.draggable = true
+]).directive 'iconMask', ($document)->
+	restrict: 'A'
+	link: (scope, element, attrs)->
 
-			# element.bind 'dragstart', (event)->
-			# 	# event.dataTransfer.effectAllowed = 'move'
-			# 	# console.log "dragstart"
+		imageCanvas  = document.createElement 'canvas'
+		imageContext = imageCanvas.getContext '2d'
 
-			# element.bind 'dragend', (event)->
-			# 	# console.log "dragend"
+		width  = attrs.iwidth  || 192
+		height = attrs.iheight || 192
+		imageCanvas.width  = width
+		imageCanvas.height = height
 
-			# startX = 0
-			# startY = 0
-			# x = 0
-			# y = 0
 
-			# mousemove = (event)->
-			# 	y = event.screenY - startY
-			# 	x = event.screenX - startX
-			# 	element.css {
-			# 		top: y + 'px'
-			# 		left: x + 'px'
-			# 	}
+		preImage = (url, cb)->
+			img = new Image()
+			img.src = url
+			img.onload = ()->
+				cb.call img
+				element.attr "src", imageCanvas.toDataURL()
+			return
 
-			# mouseup = ()->
-			# 	element.css {
-			# 		top: 0
-			# 		left: 0
-			# 	}
-			# 	scope.$apply ()->
-			# 		scope.openBtn = "btn-blue"
-			# 	startX = startY = x = y = 0
-			# 	$document.unbind 'mousemove'#, mousemove
-			# 	$document.unbind 'mouseup'#, mouseup
+		iconBase = (image, compos, cb)->
+			preImage image, ()->
+				imageContext.drawImage this, 0, 0, width, height
+				if compos? and typeof compos isnt 'undefined'
+					imageContext.globalCompositeOperation = compos
+				if cb? and typeof cb isnt 'undefined'
+					cb()
+				return
 
-			# element.bind 'mousedown', (event)->
-			# 	event.preventDefault()
-			# 	args = attrs.draggable.split(',')
-			# 	# scope.openBtn = args[0]
-			# 	scope.$apply ()->
-			# 		scope.openBtn = args[0]
-			# 	startX = event.screenX - x
-			# 	startY = event.screenY - y
-			# 	$document.bind 'mousemove', mousemove
-			# 	$document.bind 'mouseup', mouseup
+		changeIcon = (base, src, shape)->
+			iconBase src, 'destination-in', ()->
+				iconBase shape, 'destination-over', ()->
+					iconBase base, 'source-over', ()->
+			return
 
-			# return
-return
+		changeIconInit = (base, src, shape)->
+			iconBase src, 'destination-in', ()->
+				iconBase shape, 'destination-over', ()->
+					iconBase base, 'source-over', ()->
+						# iconBase mask, {x:0, y:0, width: 50, height: 50}, 'destination-over', ()->
+						attrs.$observe "base", (x) -> changeIcon x, attrs.src, attrs.shape
+					attrs.$observe "shape", (x) -> changeIcon attrs.base, attrs.src, x
+				attrs.$observe "src", (x) -> changeIcon attrs.base, x, attrs.shape
+			return
+
+		changeIconInit attrs.base, attrs.src, attrs.shape
+
+
+		return
