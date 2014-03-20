@@ -8,14 +8,28 @@
 	background: purple;
 }
 
-
-.left, .middle, .right {
-	margin: 20px;
-	width: 30%;
+.col-1 {
+	width: 100px;
+	height: 500px;
 }
-
-
-
+.col-3 {
+	width: 300px;
+	height: 200px;
+}
+.col-5 {
+	width: 500px;
+	height: 500px;
+}
+[class*=col] {
+	// margin: 20px;
+	float: left;
+}
+.hide {
+	display: none;
+}
+.drag-placeholder {
+	background: lightblue;
+}
 /*============================================*/
 .active-bg {
 	width: 56px;
@@ -31,4 +45,3 @@
 		border-radius: 6px;
 	}
 }
-

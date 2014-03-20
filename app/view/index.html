@@ -28,14 +28,14 @@
 		<div class="ui-left-wrap">
 			<div class="gray-wrap">
 				<ul class="nav-tree">
-					<li draggable='btn-yellow' class="menu-btn btn-yellow">
+					<li menudrag='btn-yellow' mydrag="blue" class="menu-btn btn-yellow">
 						<span class="circle-wrap">
 							<i class="i-1"></i>
 							<i class="i-2"></i>
 							<i class="i-3"></i>
 						</span>
 					</li>
-					<li draggable='btn-green' class="menu-btn btn-green">
+					<li menudrag='btn-green' class="menu-btn btn-green">
 						<span class="circle-wrap">
 							<i class="i-1"></i>
 						</span>
@@ -51,11 +51,11 @@
 			</div>
 		</div>
 		<div class="ui-right-wrap" drop-wrap>
-			<div class="left" drag-change="true">
+			<div class="left col-1" drag-change="true">
 				<img class="active-bg" icon-mask ng-repeat="app in app_icon" src="{{app.icon}}" base="{{app.base}}" shape="{{app.mask}}"  />
 			</div>
-			<div class="middle" drag-change="true"></div>
-			<div class="right" drag-change="true"></div>
+			<div class="middle col-3" drag-change="true"></div>
+			<div class="right col-5" drag-change="true"></div>
 		</div>
 	</main>
 
@@ -63,8 +63,9 @@
 	<script src="../script/index.js"></script>
 	<script src="../script/services/mainService.js"></script>
 	<script src="../script/controllers/mainControllers.js"></script>
+
 	<script src="../script/directives/mainDirectives.js"></script>
-	<script src="../script/directives/iconmask/maskDirectives.js"></script>
 	<script src="../script/directives/draggable/dragDirectives.js"></script>
+	<script src="../script/directives/iconmask/maskDirectives.js"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@ app = angular.module "mainApp", [
 	'mainApp.controllers'
 	# 'mainApp.services'
 	'mainApp.directives'
-	'maskDirectives'
+	'mainApp.dragDirectives'
+	'mainApp.maskDirectives'
 ]
 
 return

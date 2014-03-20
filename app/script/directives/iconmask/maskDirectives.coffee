@@ -1,21 +1,19 @@
 'use strict'
 
-angular.module 'maskDirectives', []
-
-angular.module('anthcraft.iconMask', [
+angular.module('mainApp.maskDirectives', [
 
 ]).directive 'iconMask', ($document)->
 	restrict: 'A'
 	link: (scope, element, attrs)->
-		console.log 123
 
 		imageCanvas  = document.createElement 'canvas'
 		imageContext = imageCanvas.getContext '2d'
 
-		width  = attrs.width  || 56
-		height = attrs.height || 56
+		width  = attrs.iwidth  || 192
+		height = attrs.iheight || 192
 		imageCanvas.width  = width
 		imageCanvas.height = height
+
 
 		preImage = (url, cb)->
 			img = new Image()
@@ -25,55 +23,32 @@ angular.module('anthcraft.iconMask', [
 				element.attr "src", imageCanvas.toDataURL()
 			return
 
-
-		preImage attrs.src, ()->
-			imageContext.drawImage this, 4, 4, 48, 48
-			imageContext.globalCompositeOperation = 'destination-in'
-
-			preImage attrs.shape, ()->
+		iconBase = (image, compos, cb)->
+			preImage image, ()->
 				imageContext.drawImage this, 0, 0, width, height
-				imageContext.globalCompositeOperation = 'destination-over'
+				if compos? and typeof compos isnt 'undefined'
+					imageContext.globalCompositeOperation = compos
+				if cb? and typeof cb isnt 'undefined'
+					cb()
+				return
 
-				preImage attrs.base, ()->
-					imageContext.drawImage this, 0, 0, width, height
-					imageContext.globalCompositeOperation = 'source-over'
-					preImage attrs.mask, ()->
-						imageContext.drawImage this, 0, 0, width, height
+		changeIcon = (base, src, shape)->
+			iconBase src, 'destination-in', ()->
+				iconBase shape, 'destination-over', ()->
+					iconBase base, 'source-over', ()->
+			return
+
+		changeIconInit = (base, src, shape)->
+			iconBase src, 'destination-in', ()->
+				iconBase shape, 'destination-over', ()->
+					iconBase base, 'source-over', ()->
+						# iconBase mask, {x:0, y:0, width: 50, height: 50}, 'destination-over', ()->
+						attrs.$observe "base", (x) -> changeIcon x, attrs.src, attrs.shape
+					attrs.$observe "shape", (x) -> changeIcon attrs.base, attrs.src, x
+				attrs.$observe "src", (x) -> changeIcon attrs.base, x, attrs.shape
+			return
+
+		changeIconInit attrs.base, attrs.src, attrs.shape
+
+
 		return
-
-
-							# element.attr "src", imageCanvas.toDataURL()
-				# imageContext.globalCompositeOperation = 'destination-over'
-
-			# 内部组合
-
-			# preImage attrs.icon, ()->
-			# 	imageContext.drawImage this, 0, 0, width, height
-			# 	imageContext.globalCompositeOperation = 'source-atop'
-			# 	preImage attrs.imask, ()->
-			# 		imageContext.drawImage this, 12, 12
-			# 	imageContext.globalCompositeOperation = 'destination-atop'
-
-					# preImage attrs.iscope, ()->
-					# 	imageContext.drawImage this, 0, 0, width, height
-
-				# imageContext.globalCompositeOperation = 'source-atop'
-			# 外部组合
-			# preImage attrs.imask, ()->
-			# 	imageContext.drawImage this, 11, 11
-			# 	imageContext.globalCompositeOperation = 'source-out'
-
- # var width  = img.offsetWidth;
- #      var height = img.offsetHeight;
-
- #      var mask = document.createElement('img');
- #      mask.src = img.getAttribute('data-mask');
-
- #      imagecanvas.width  = width;
- #      imagecanvas.height = height;
-
- #      imagecontext.drawImage(mask, 0, 0, width, height);
- #      imagecontext.globalCompositeOperation = 'source-atop';
- #      imagecontext.drawImage(img, 0, 0);
-
- #      img.src = imagecanvas.toDataURL();
