@@ -51,11 +51,29 @@
 			</div>
 		</div>
 		<div class="ui-right-wrap" drop-wrap>
-			<div class="right col-5" drag-change="true"></div>
-			<div class="middle col-3" drag-change="true"></div>
 			<div class="left col-1" drag-change="true">
-				<img class="active-bg" icon-mask ng-repeat="app in app_icon" src="{{app.icon}}" base="{{app.base}}" shape="{{app.mask}}"  />
+					<!-- posImg="" -->
+				<img class="preview-canvas" preview-canvas
+					bgimg='../image/tmp/wallpaper-hd.jpg'
+					topimg='../image/tmp/pw05bar.png'
+					pos='left'
+				/>
 			</div>
+			<div class="middle col-3" drag-change="true">
+				<img class="preview-canvas" preview-canvas
+					bgimg='../image/tmp/wallpaper-hd.jpg'
+					topimg='../image/tmp/pw05bar.png'
+					pos='center'
+				/>
+			</div>
+			<div class="right col-5" drag-change="true">
+				<img class="preview-canvas" preview-canvas
+					bgimg='../image/tmp/wallpaper-hd.jpg'
+					topimg='../image/tmp/pw05bar.png'
+					pos='right'
+				/>
+			</div>
+			<img class="active-bg" icon-mask ng-repeat="app in app_icon" src="{{app.icon}}" base="{{app.base}}" shape="{{app.mask}}"  />
 		</div>
 	</main>
 
@@ -67,5 +85,6 @@
 	<script src="../script/directives/mainDirectives.js"></script>
 	<script src="../script/directives/draggable/dragDirectives.js"></script>
 	<script src="../script/directives/iconmask/maskDirectives.js"></script>
+	<script src="../script/directives/previewCanvas/previewCanvas.js"></script>
 </body>
 </html>
