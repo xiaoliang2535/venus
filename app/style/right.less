@@ -1,23 +1,18 @@
-.left {
-	background: blue;
-}
-.middle {
-	background: lightgreen;
-}
-.right {
-	background: purple;
-}
-
+@import "./base/bundles/grid.mixin.less";
 [class*=col] {
 	width: 213px;
 	height: 378px;
 	float: left;
+	padding: 10px;
 }
 .hide {
 	display: none;
 }
 .drag-placeholder {
-	background: lightblue;
+	float: left;
+	&.move {
+		border: 1px dotted #bbb;
+	}
 }
 /*============================================*/
 .active-bg {
@@ -33,6 +28,10 @@
 		box-shadow: 0 0 20px #25D4DF inset,0 0 20px #25D4DF;
 		border-radius: 6px;
 	}
+}
+.drag-wrap {
+	height: 420px;
+	.clearfix();
 }
 
 /*============================================*/

@@ -74,6 +74,5 @@ angular.module('mainApp.dragDirectives', [])
 				left: leftx + "px"
 			}
 
-			# element.addClass "active-drag"
 			$document.bind 'mousemove', mousemove
 			$document.bind 'mouseup', mouseup

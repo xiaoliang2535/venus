@@ -17,7 +17,36 @@
 				"icon": "../image/tmp/icon-1.png",
 				"base": "../image/tmp/base-1.png",
 				"shape": "../image/tmp/shape-1.png",
-				"mask": "../image/tmp/mask-1.png"
+				"mask": "../image/tmp/mask-1.png",
+				"text": "Phone"
+			},
+			{
+				"icon": "../image/tmp/icon-2.png",
+				"base": "../image/tmp/base-1.png",
+				"shape": "../image/tmp/shape-1.png",
+				"mask": "../image/tmp/mask-1.png",
+				"text": "Contacts"
+			},
+			{
+				"icon": "../image/tmp/icon-3.png",
+				"base": "../image/tmp/base-1.png",
+				"shape": "../image/tmp/shape-1.png",
+				"mask": "../image/tmp/mask-1.png",
+				"text": "Apps"
+			},
+			{
+				"icon": "../image/tmp/icon-4.png",
+				"base": "../image/tmp/base-1.png",
+				"shape": "../image/tmp/shape-1.png",
+				"mask": "../image/tmp/mask-1.png",
+				"text": "Message"
+			},
+			{
+				"icon": "../image/tmp/icon-5.png",
+				"base": "../image/tmp/base-1.png",
+				"shape": "../image/tmp/shape-1.png",
+				"mask": "../image/tmp/mask-1.png",
+				"text": "Browers"
 			}
 		]
 	}
