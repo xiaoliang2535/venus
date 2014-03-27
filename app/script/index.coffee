@@ -8,6 +8,7 @@ app = angular.module "mainApp", [
 	'mainApp.directives'
 	'mainApp.dragDirectives'
 	'mainApp.maskDirectives'
+	'mainApp.previewDirectives'
 	'mainApp.previewCanvas'
 ]
 

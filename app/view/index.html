@@ -51,17 +51,16 @@
 			</div>
 		</div>
 		<div class="ui-right-wrap" drop-wrap>
-			<div class="drag-wrap">
-				<div class="col-1" drag-change preview-canvas>
+			<!-- <div class="drag-wrap">
+				<div class="col-1" drag-change preview-demo>
 					<canvas bgimg='../image/tmp/wallpaper-hd1.jpg' pos="center" width="213" height="378"></canvas>
 					<span class="inner" src="../image/tmp/pw04time.png" posX="10" posY="35"></span>
 					<span class="inner" src="../image/tmp/pw05bar.png"  posX="0" posY="0"></span>
-					<!-- <span class="inner" ng-repeat="app in app_icon" src="{{app.icon}}" posX="0" posY="50"></span> -->
 					<ul posX="10" posY="330" margin="10">
 						<li ng-repeat="app in app_icon" ng-src="{{app.icon}}" text="{{app.text}}" width="30"></li>
 					</ul>
 				</div>
-				<div class="col-2" drag-change preview-canvas>
+				<div class="col-2" drag-change preview-demo>
 					<canvas bgimg='../image/tmp/wallpaper-hd1.jpg' pos="left" width="213" height="378"></canvas>
 					<span class="inner" src="../image/tmp/pw05bar.png"  posX="0" posY="0"></span>
 
@@ -75,37 +74,27 @@
 						<li src="../image/tmp/ap_menu.png" text="" width="30"></li>
 					</ul>
 				</div>
-				<div class="col-3" drag-change preview-canvas>
+				<div class="col-3" drag-change preview-demo>
 					<canvas bgimg='../image/tmp/wallpaper-hd1.jpg' pos="right" width="213" height="378"></canvas>
 					<span class="inner" src="../image/tmp/bettery_widget.png" posX="10" posY="40"></span>
 					<span class="inner" src="../image/tmp/pw05bar.png"  posX="0" posY="0"></span>
-					<!-- <span class="inner" ng-repeat="app in app_icon" src="{{app.icon}}" posX="0" posY="50"></span> -->
 					<ul posX="10" posY="330" margin="10">
 						<li ng-repeat="app in app_icon" ng-src="{{app.icon}}" text="{{app.text}}" width="30"></li>
 					</ul>
+				</div>
+			</div> -->
+
+			<div class="drag-wrap">
+				<div class="preview" preview-canvas theme="theme" sence="home">
+				</div>
+				<div class="preview" preview-canvas theme="theme" sence="apps">
+				</div>
+				<div class="preview" preview-canvas theme="theme" sence="widget">
 				</div>
 			</div>
 		</div>
 	</main>
 
-
-				<!-- <div class="col-1" drag-change preview-canvas bgimg ='../image/tmp/wallpaper-hd.jpg'>
-					<img class="preview-canvas"
-						bgimg ='../image/tmp/wallpaper-hd.jpg'
-						topimg='../image/tmp/pw05bar.png'
-						pos='center'
-					/>
-					<div class="inner" src="../image/tmp/pw04time.png" posX="10" posY="30"></div>
-				</div>
-
-				<div class="col-1" drag-change preview-canvas bgimg ='../image/tmp/wallpaper-hd.jpg'>
-					<img class="preview-canvas"
-						bgimg ='../image/tmp/wallpaper-hd.jpg'
-						topimg='../image/tmp/pw05bar.png'
-						pos='center'
-					/>
-					<div class="inner" src="../image/tmp/bettery_widget.png" posX="10" posY="35"></div>
-				</div> -->
 	<script src="../vender/angular/1.1.5/angular.js"></script>
 	<script src="../script/index.js"></script>
 	<script src="../script/services/mainService.js"></script>
@@ -118,5 +107,6 @@
 -->
 	<script src="../script/directives/draggable/wrapDragDrop.js"></script>
 	<script src="../script/directives/previewCanvas/previewCanvas.js"></script>
+	<script src="../script/directives/previewCanvas/previewDirectives.js"></script>
 </body>
 </html>
