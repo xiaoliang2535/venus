@@ -17,3 +17,5 @@ results
 npm-debug.log
 node_modules
 build/
+app/image/default_theme/app_icon/com_android_calculator2_com_android_calculator2_calculator.png
+app/image/default_theme/

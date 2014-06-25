@@ -4,17 +4,16 @@ angular.module('mainApp.previewCanvas', [])
 
 .directive 'previewCanvas', ($document)->
 	{
-		template: '<div><canvas style="width:215px; height:380px;"></canvas></div>'
+		template: '<div><canvas></canvas></div>'
 		replace: true
 		transclude: true
 		scope: {
 			theme: "="
 			sence: "@"
-			width:  "@"
-			height: "@"
+			multiple: "@"
 		}
 		link: (scope, element, attrs)->
-			multiple = 2
+			multiple = scope.multiple || 2
 
 			# 加载一张图片
 			preImage = (src, callback)->
@@ -44,8 +43,8 @@ angular.module('mainApp.previewCanvas', [])
 					imageContext.drawImage this, sx, sy, sw, sh
 				return
 
-			cWidth  = scope.width  || 215 * multiple
-			cHeight = scope.height || 380 * multiple
+			cWidth  = 215 * multiple
+			cHeight = 380 * multiple
 
 			imageCanvas  = element.children()[0]
 			imageContext = imageCanvas.getContext '2d'

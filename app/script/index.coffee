@@ -12,5 +12,7 @@ app = angular.module "mainApp", [
 	'mainApp.previewCanvas'
 ]
 
+countdown = (num for num in [10..1])
+
 return
 # app.config ($routerProvider)->

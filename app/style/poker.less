@@ -1,0 +1,60 @@
+@import "./base/bundles/html5spec.mixin.less";
+@import "./btn/poker.mixin.less";
+@basePath: "../image/poker/";
+
+.poker {
+	width: 60px;
+	height: 83px;
+	background: url("@{basePath}poker.jpg") no-repeat;
+}
+
+.right-poker {
+	float: right;
+}
+
+.pos-poker {
+	position: fixed;
+	z-index: 10;
+}
+
+.poker-img {
+	//display: none;
+}
+// ===============
+.m-total {
+	text-align: center;
+}
+.schedule {
+	margin: 15px auto;
+	width: 14*51px + 60px;
+	height: 83px;
+	background: url("@{basePath}poker_schedule.jpg") repeat-x;
+}
+
+/* 用户模块，系统模块*/
+.m-user, .m-system {
+	padding: 20px;
+	border: 5px solid #ccc;
+	li {
+		vertical-align: top;
+		text-align: center;
+	}
+}
+.m-user {
+	float: left;
+}
+.m-system {
+	float: right;
+}
+
+// clearfix
+.g-group {
+	&:after {
+		clear: both;
+		visibility: hidden;
+		display: block;
+		content: " ";
+		height: 0;
+		font-size: 0;
+	}
+}

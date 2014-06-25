@@ -64,6 +64,13 @@ module.exports = (grunt) ->
 					src: ['**']
 					dest: '<%= config.path.build %>/<%= config.path.libary %>/'
 				]
+			js:
+				files: [
+					expand: true
+					cwd: '<%= config.path.source %>'
+					src: ['**/*.js']
+					dest: '<%= config.path.build %>/<%= config.path.source %>'
+				]
 
 		cssmin:
 			minify:
@@ -109,6 +116,12 @@ module.exports = (grunt) ->
 				tasks: 'copy:html'
 				options:
 					livereload: true
+			image:
+				files: ['**/*.jpg', '**/*.png']
+				tasks: 'copy:image'
+			# js:
+			# 	files: ['**/*.js', '!**/*.coffee']
+			# 	tasks: 'copy:js'
 
 		express:
 			server:

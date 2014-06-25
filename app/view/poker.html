@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-controller="headController">
+<head>
+	<meta charset="utf-8">
+	<title>德州扑克demo</title>
+	<link rel="stylesheet" href="../style/poker.css" />
+	<link rel="shortcut icon" href="http://localhost:8000/favicon.ico">
+</head>
+<body>
+
+	<div class="g-group">
+
+		<header>
+			<h1>德州扑克</h1>
+		</header>
+
+		<div class="m-total">
+			<div class="schedule">
+				<div id="right-poker" class="right-poker poker"></div>
+			</div>
+			<a class="btn js-start-btn" href="javascript:void(0)">开始发牌</a>
+			<a class="btn js-end-btn" href="javascript:void(0)">庄家开牌</a>
+		</div>
+
+
+		<div class="m-user">
+			<ul>
+				<li>
+					<div class="poker"></div>
+					<a class="js-reset-btn" href="javascript:void(0)">重置</a>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-reset-btn" href="javascript:void(0)">重置</a>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-reset-btn" href="javascript:void(0)">重置</a>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-reset-btn" href="javascript:void(0)">重置</a>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-reset-btn" href="javascript:void(0)">重置</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="m-system">
+			<ul>
+				<li>
+					<div class="poker"></div>
+				</li>
+				<li>
+					<div class="poker"></div>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-open-btn" href="javascript:void(0)">查看</a>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-open-btn" href="javascript:void(0)">查看</a>
+				</li>
+				<li>
+					<div class="poker"></div>
+					<a class="js-open-btn" href="javascript:void(0)">查看</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- <div class="pos-poker poker"></div> -->
+	<script src="../vender/jquery/jquery-1.9.1.min.js"></script>
+	<script src="../script/other/poker.model.js"></script>
+	<script src="../script/other/poker.controller.js"></script>
+</body>
+</html>

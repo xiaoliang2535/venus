@@ -51,45 +51,12 @@
 			</div>
 		</div>
 		<div class="ui-right-wrap" drop-wrap>
-			<!-- <div class="drag-wrap">
-				<div class="col-1" drag-change preview-demo>
-					<canvas bgimg='../image/tmp/wallpaper-hd1.jpg' pos="center" width="213" height="378"></canvas>
-					<span class="inner" src="../image/tmp/pw04time.png" posX="10" posY="35"></span>
-					<span class="inner" src="../image/tmp/pw05bar.png"  posX="0" posY="0"></span>
-					<ul posX="10" posY="330" margin="10">
-						<li ng-repeat="app in app_icon" ng-src="{{app.icon}}" text="{{app.text}}" width="30"></li>
-					</ul>
-				</div>
-				<div class="col-2" drag-change preview-demo>
-					<canvas bgimg='../image/tmp/wallpaper-hd1.jpg' pos="left" width="213" height="378"></canvas>
-					<span class="inner" src="../image/tmp/pw05bar.png"  posX="0" posY="0"></span>
-
-					<ul posX="10" posY="30" margin="10">
-						<li ng-repeat="app in app_icon" ng-src="{{app.icon}}" text="{{app.text}}" width="40"></li>
-					</ul>
-
-					<ul posX="40" posY="335" margin="20">
-						<li src="../image/tmp/ap_search.png" text="" width="30"></li>
-						<li src="../image/tmp/ap_home.png" text="" width="30"></li>
-						<li src="../image/tmp/ap_menu.png" text="" width="30"></li>
-					</ul>
-				</div>
-				<div class="col-3" drag-change preview-demo>
-					<canvas bgimg='../image/tmp/wallpaper-hd1.jpg' pos="right" width="213" height="378"></canvas>
-					<span class="inner" src="../image/tmp/bettery_widget.png" posX="10" posY="40"></span>
-					<span class="inner" src="../image/tmp/pw05bar.png"  posX="0" posY="0"></span>
-					<ul posX="10" posY="330" margin="10">
-						<li ng-repeat="app in app_icon" ng-src="{{app.icon}}" text="{{app.text}}" width="30"></li>
-					</ul>
-				</div>
-			</div> -->
-
 			<div class="drag-wrap">
-				<div class="preview" preview-canvas theme="theme" sence="home">
+				<div class="preview" drag-change preview-canvas theme="theme" sence="home">
 				</div>
-				<div class="preview" preview-canvas theme="theme" sence="apps">
+				<div class="preview" drag-change preview-canvas theme="theme" sence="apps">
 				</div>
-				<div class="preview" preview-canvas theme="theme" sence="widget">
+				<div class="preview" drag-change preview-canvas theme="theme" sence="widget">
 				</div>
 			</div>
 		</div>
